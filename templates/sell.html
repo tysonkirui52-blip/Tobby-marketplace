@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sell Item</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body{
+            font-family:Arial;
+            background:#f4f4f4;
+        }
+
+        .box{
+            width:90%;
+            max-width:400px;
+            margin:30px auto;
+            background:white;
+            padding:20px;
+            border-radius:10px;
+        }
+
+        input,textarea{
+            width:100%;
+            padding:10px;
+            margin:10px 0;
+            box-sizing:border-box;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            background:green;
+            color:white;
+            border:none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Sell Your Item</h2>
+
+<form method="POST" enctype="multipart/form-data">
+
+<input type="text" name="name" placeholder="Item Name" required>
+
+<input type="text" name="price" placeholder="Price" required>
+
+<textarea name="desc" placeholder="Description"></textarea>
+
+<input type="text" name="phone" placeholder="Phone (2547XXXXXXXX)" required>
+
+<input type="file" name="image" accept="image/*" required>
+
+<button type="submit">Post Item</button>
+
+</form>
+
+</div>
+
+</body>
+</html>
