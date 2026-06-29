@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sell an Item - Tobby SecondHand Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header class="topbar">
+    <a class="brand" href="/">
+        <span class="brand-mark">T</span>
+        <span>Tobby Hub</span>
+    </a>
+
+    <a class="sell-button" href="/">Browse</a>
+</header>
+
+<main class="form-page">
+    <section class="form-card">
+        <h1>Post your ad</h1>
+        <p>Add the item details buyers need before they contact you.</p>
+
+        <form method="POST" enctype="multipart/form-data" class="listing-form">
+            <label>
+                Product name
+                <input name="name" placeholder="Example: Samsung Galaxy A24" required>
+            </label>
+
+            <label>
+                Price
+                <input name="price" placeholder="Example: 15000" required>
+            </label>
+
+            <label>
+                Category
+                <input name="category" placeholder="Phones, Cars, Furniture..." required>
+            </label>
+
+            <label>
+                Location
+                <input name="location" placeholder="Example: Nairobi" required>
+            </label>
+
+            <label>
+                Description
+                <textarea name="description" placeholder="Condition, age, accessories, delivery details..." required></textarea>
+            </label>
+
+            <label>
+                Phone number
+                <input name="phone" placeholder="254700000000" required>
+            </label>
+
+            <label>
+                Product photo
+                <input type="file" name="image" accept="image/*">
+            </label>
+
+            <button type="submit">Post Item</button>
+        </form>
+    </section>
+</main>
+
+</body>
+</html>

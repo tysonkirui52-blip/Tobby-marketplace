@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tobby SecondHand Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header class="topbar classified-topbar">
+    <a class="brand classified-brand" href="/">
+        <span class="brand-mark">TB</span>
+        <span>Classified</span>
+    </a>
+
+    <form class="top-search" method="GET" action="/">
+        <input name="location" value="{{ location }}" placeholder="Select Location" aria-label="Location">
+        <input name="search" value="{{ search }}" placeholder="Enter Keyword here ..." aria-label="Search products">
+        <button type="submit">Search</button>
+    </form>
+
+    <a class="post-ad-button" href="/sell">+ Post Your Ad</a>
+</header>
+
+<main>
+    <section class="category-nav">
+        <a class="all-categories" href="/">See All Categories</a>
+        <span>Top Categories:</span>
+        <a href="/?category=Business">Business & Industry</a>
+        <a href="/?category=Education">Education</a>
+        <a href="/?category=Electronics">Electronics</a>
+        <a href="/?category=Property">Property</a>
+        <a href="/?category=Services">Services</a>
+    </section>
+
+    <section class="promo-hero">
+        <div>
+            <p>Find it near you</p>
+            <h1>Tobby Classified Helps You Find The Best Deals</h1>
+            <a href="/sell">Post your first ad</a>
+        </div>
+        <div class="hero-product">
+            <img src="/uploads/1781262623876.jpg" alt="Featured second hand product">
+            <span>For Sale</span>
+            <strong>Local deals</strong>
+        </div>
+    </section>
+
+    <section class="listing-header">
+        <div>
+            <h1>Featured Ads</h1>
+            <p>{{ products|length }} item{% if products|length != 1 %}s{% endif %} available</p>
+        </div>
+        <a href="/">See All Ads</a>
+    </section>
+
+    {% if products %}
+    <section class="product-grid">
+        {% for p in products %}
+        <a class="product-card featured-card" href="/product/{{ p.id }}">
+            <div class="image-wrap">
+                <div class="ribbons">
+                    <span>Featured</span>
+                    <b>For Sell</b>
+                </div>
+                {% if p.image %}
+                <img src="/uploads/{{ p.image }}" alt="{{ p.name }}">
+                {% else %}
+                <span>No image</span>
+                {% endif %}
+            </div>
+            <div class="product-info">
+                <strong>Ksh {{ p.price }}</strong>
+                <h2>{{ p.name }}</h2>
+                <p>{{ p.location or "Location not set" }}</p>
+                <span>{{ p.category or "General" }}</span>
+            </div>
+        </a>
+        {% endfor %}
+    </section>
+    {% else %}
+    <section class="empty-state">
+        <h2>No listings found</h2>
+        <p>Try another search or post the first item in this category.</p>
+        <a href="/sell">Sell an item</a>
+    </section>
+    {% endif %}
+</main>
+
+</body>
+</html>

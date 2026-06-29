@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat - Tobby SecondHand Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header class="topbar">
+    <a class="brand" href="/">
+        <span class="brand-mark">T</span>
+        <span>Tobby Hub</span>
+    </a>
+
+    <a class="sell-button" href="/sell">Sell</a>
+</header>
+
+<main class="chat-page">
+    <section class="chat-card">
+        <div class="chat-header">
+            <div>
+                <h1>{{ item['name'] }}</h1>
+                <p>Seller phone: {{ seller }}</p>
+            </div>
+            <a href="/product/{{ item['id'] }}">View ad</a>
+        </div>
+
+        <div class="chat-box">
+            {% if messages %}
+                {% for m in messages %}
+                <div class="message-bubble">
+                    <b>{{ m['sender'] }}</b>
+                    <span>{{ m['message'] }}</span>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p class="empty-chat">No messages yet. Start the conversation.</p>
+            {% endif %}
+        </div>
+
+        <form method="POST" class="chat-form">
+            <input name="message" placeholder="Type your message..." required>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+</main>
+
+</body>
+</html>
